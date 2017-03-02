@@ -48,7 +48,8 @@ class VendingMachine {
             return;
         }
         let currentPaid = this.paid();
-        this.paid(Math.round(((currentPaid - this.selectedCell().product.price) * 100)) / 100);
+        this.paid(Math.round(((currentPaid 
+        - this.selectedCell().product.price) * 100)) / 100);
         let currentStock = this.selectedCell().stock();
         this.selectedCell().stock(currentStock - 1);
         this.selectedCell().sold(true);

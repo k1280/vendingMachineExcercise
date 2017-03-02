@@ -88,7 +88,8 @@ var VendingMachine = (function () {
                 return;
             }
             var currentPaid = _this.paid();
-            _this.paid(Math.round(((currentPaid - _this.selectedCell().product.price) * 100)) / 100);
+            _this.paid(Math.round(((currentPaid
+                - _this.selectedCell().product.price) * 100)) / 100);
             var currentStock = _this.selectedCell().stock();
             _this.selectedCell().stock(currentStock - 1);
             _this.selectedCell().sold(true);
