@@ -1,9 +1,6 @@
-// <reference path="vendingMachine.ts" />
-var machine = new VendingMachine();
-ko.applyBindings(machine);
 var Quarter = (function () {
     function Quarter() {
-        /*private*/ this.value = .25;
+        this.value = .25;
     }
     Object.defineProperty(Quarter.prototype, "Value", {
         get: function () {
@@ -23,15 +20,6 @@ var Quarter = (function () {
 var coin = new Quarter();
 var value = coin.Value;
 coin.Value = 25;
-// <reference path="productCategory.ts" />
-var CocaCola = (function () {
-    function CocaCola() {
-        this.name = "Coca-Cola";
-        this.price = 2.30;
-        this.category = new SodaCategory();
-    }
-    return CocaCola;
-}());
 var SodaCategory = (function () {
     function SodaCategory() {
         this.name = "Soda";
@@ -41,17 +29,17 @@ var SodaCategory = (function () {
     };
     return SodaCategory;
 }());
-// <reference path="product.ts" />
-var productFactory = (function () {
-    function productFactory() {
+/// <reference path="productCategory.ts" />
+var CocaCola = (function () {
+    function CocaCola() {
+        this.name = "Coca-Cola";
+        this.price = 2.30;
+        this.category = new SodaCategory();
     }
-    productFactory.getProduct = function () {
-        return new CocaCola();
-    };
-    return productFactory;
+    return CocaCola;
 }());
-// <reference path="./coin.ts" />
-// <reference path="./product.ts" />
+/// <reference path="./coin.ts" />
+/// <reference path="./product.ts" />
 var Cell = (function () {
     function Cell(product) {
         this.product = product;
@@ -71,5 +59,17 @@ var VendingMachine = (function () {
         };
     }
     return VendingMachine;
+}());
+/// <reference path="vendingMachine.ts" />
+var machine = new VendingMachine();
+ko.applyBindings(machine);
+/// <reference path="product.ts" />
+var productFactory = (function () {
+    function productFactory() {
+    }
+    productFactory.getProduct = function () {
+        return new CocaCola();
+    };
+    return productFactory;
 }());
 //# sourceMappingURL=app.js.map

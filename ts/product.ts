@@ -1,4 +1,4 @@
-// <reference path="productCategory.ts" />
+/// <reference path="productCategory.ts" />
 
 class CocaCola{
     name = "Coca-Cola";

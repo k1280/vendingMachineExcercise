@@ -1,5 +1,5 @@
-// <reference path="./coin.ts" />
-// <reference path="./product.ts" />
+/// <reference path="./coin.ts" />
+/// <reference path="./product.ts" />
 
 class Cell {
     constructor (public product: CocaCola){

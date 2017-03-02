@@ -1,4 +1,4 @@
-// <reference path="product.ts" />
+/// <reference path="product.ts" />
 
 class productFactory {
     static getProduct(): CocaCola {
