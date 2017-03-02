@@ -1,6 +1,6 @@
 class SodaCategory{
     name = "Soda";
     getImageUrl(){
-        return "img/soda.png"
+        return "img/SodaCan.png"
     }
 }

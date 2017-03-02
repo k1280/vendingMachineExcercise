@@ -37,10 +37,11 @@ var SodaCategory = (function () {
         this.name = "Soda";
     }
     SodaCategory.prototype.getImageUrl = function () {
-        return "img/soda.png";
+        return "img/SodaCan.png";
     };
     return SodaCategory;
 }());
+// <reference path="product.ts" />
 var productFactory = (function () {
     function productFactory() {
     }
