@@ -38,8 +38,25 @@ var CocaCola = (function () {
     }
     return CocaCola;
 }());
+/// <reference path="product.ts" />
+var productFactory = (function () {
+    function productFactory() {
+    }
+    productFactory.getProduct = function () {
+        return new CocaCola();
+    };
+    return productFactory;
+}());
 /// <reference path="./coin.ts" />
+/// <reference path="typings/knockout.d.ts"/>
 /// <reference path="./product.ts" />
+/// <reference path="./productFactory.ts" />
+var VendingMachineSize;
+(function (VendingMachineSize) {
+    VendingMachineSize[VendingMachineSize["small"] = 6] = "small";
+    VendingMachineSize[VendingMachineSize["medium"] = 9] = "medium";
+    VendingMachineSize[VendingMachineSize["large"] = 12] = "large";
+})(VendingMachineSize || (VendingMachineSize = {}));
 var Cell = (function () {
     function Cell(product) {
         this.product = product;
@@ -52,24 +69,28 @@ var VendingMachine = (function () {
     function VendingMachine() {
         var _this = this;
         this.paid = ko.observable(0);
+        this.cells = ko.observableArray([]);
         this.acceptedCoins = [new Quarter()];
         this.acceptCoin = function (coin) {
             var oldTotal = _this.paid();
             _this.paid(oldTotal + coin.value);
         };
     }
+    Object.defineProperty(VendingMachine.prototype, "size", {
+        set: function (giveSize) {
+            for (var index = 0; index < giveSize; index++) {
+                var product = productFactory.getProduct();
+                this.cells.push(new Cell(product));
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     return VendingMachine;
 }());
 /// <reference path="vendingMachine.ts" />
+/// <reference path="typings/knockout.d.ts"/>
 var machine = new VendingMachine();
+machine.size = VendingMachineSize.medium;
 ko.applyBindings(machine);
-/// <reference path="product.ts" />
-var productFactory = (function () {
-    function productFactory() {
-    }
-    productFactory.getProduct = function () {
-        return new CocaCola();
-    };
-    return productFactory;
-}());
 //# sourceMappingURL=app.js.map

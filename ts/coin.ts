@@ -1,5 +1,5 @@
 class Quarter {
-    private value: number = .25;
+    value: number = .25;
     get Value() {
         return this.value;
     }
