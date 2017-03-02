@@ -1,5 +1,5 @@
 class Quarter {
-    value: number = .25;
+    private value: number = .25;
     get Value() {
         return this.value;
     }
@@ -7,10 +7,23 @@ class Quarter {
         this.value = newValue;
     }
     getImageUrl(): string {
-        return "img/quarter.png"
+        return "img/Quarter.png"
     }
 }
 
-var coin = new Quarter();
-var value = coin.Value;
-coin.Value = 25;
+class Dime {
+    private value: number = .10;
+    get Value() {
+        return this.value;
+    }
+    set Value(newValue: number) {
+        this.value = newValue;
+    }
+    getImageUrl(): string {
+        return "img/Dime.png"
+    }
+}
+
+// var coin = new Quarter();
+// var value = coin.Value;
+// coin.Value = 25;

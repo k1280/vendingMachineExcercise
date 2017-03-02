@@ -13,13 +13,32 @@ var Quarter = (function () {
         configurable: true
     });
     Quarter.prototype.getImageUrl = function () {
-        return "img/quarter.png";
+        return "img/Quarter.png";
     };
     return Quarter;
 }());
-var coin = new Quarter();
-var value = coin.Value;
-coin.Value = 25;
+var Dime = (function () {
+    function Dime() {
+        this.value = .10;
+    }
+    Object.defineProperty(Dime.prototype, "Value", {
+        get: function () {
+            return this.value;
+        },
+        set: function (newValue) {
+            this.value = newValue;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Dime.prototype.getImageUrl = function () {
+        return "img/Dime.png";
+    };
+    return Dime;
+}());
+// var coin = new Quarter();
+// var value = coin.Value;
+// coin.Value = 25; 
 var SodaCategory = (function () {
     function SodaCategory() {
         this.name = "Soda";
